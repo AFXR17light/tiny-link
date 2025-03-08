@@ -108,6 +108,7 @@
       font-size: 1rem;
       cursor: pointer;
       transition: all 0.2s ease;
+      margin-top: 1rem;
     }
 
     button:hover {
@@ -149,21 +150,15 @@
     <div class="input-group">
       <label for="longUrl">Original URL</label>
       <input type="text" class="form-control" id="longURL" aria-describedby="basic-addon1"
-        placeholder="Example: https://example.com/" oninput="loadUrlList()">
+        placeholder="https://example.com/long-url" oninput="loadUrlList()">
     </div>
 
     <div class="input-group">
       <label for="keyPhrase">Custom tail (optional)</label>
-      <input type="text" class="form-control" id="keyPhrase" aria-describedby="basic-addon2" placeholder="As you wish">
+      <input type="text" class="form-control" id="keyPhrase" aria-describedby="basic-addon2" placeholder="my-tiny-link">
     </div>
 
     <button class="btn btn-primary" type="submit" onclick='shorturl()' id="addBtn">tinyfy</button>
-
-    <div class="input-group">
-      <label for="passwordText">password</label>
-      <input class="form-control" type="text" value="__PASSWORD__" readonly="true" id="passwordText"
-        aria-describedby="basic-addon3">
-    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/gh/lrsjng/jquery-qrcode@0.18.0/dist/jquery-qrcode.min.js"
