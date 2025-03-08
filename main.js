@@ -1,6 +1,5 @@
 let res;
-// let apiSrv = window.location.pathname;
-let apiSrv = "https://t.hkra.xyz/";
+let apiSrv = window.location.pathname;
 let password_value = document.querySelector("#passwordText").value;
 let buildValueItemFunc = buildValueTxt;
 
@@ -69,7 +68,7 @@ function shorturl() {
       document.getElementById("keyPhrase").value = "";
       const resultDiv = document.getElementById('result');
       const linkDisplay = document.getElementById('generatedLink');
-      let tinyLink = apiSrv + keyPhrase;
+      let tinyLink = window.location.hostname + keyPhrase;
       linkDisplay.textContent = tinyLink;
       resultDiv.style.display = 'block';
       navigator.clipboard.writeText(tinyLink);
