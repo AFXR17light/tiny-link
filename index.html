@@ -179,8 +179,16 @@
       padding: 0.8rem 1.5rem;
       border-radius: 25px;
       box-shadow: 0 2px 4px var(--shadow-color);
-      display: none;
-      animation: fadeOut 2.5s forwards;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      max-width: 80%;
+      text-align: center;
+    }
+
+    .notification.show {
+      opacity: 1;
+      pointer-events: auto;
     }
 
     @keyframes fadeOut {

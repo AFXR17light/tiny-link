@@ -6,16 +6,12 @@ let buildValueItemFunc = buildValueTxt;
 function showAlert(message, duration = 2000) {
   console.log(message);
   const alertBox = document.getElementById('alert');
-  
   // 清除现有定时器
   if(alertBox.timer) clearTimeout(alertBox.timer);
-  
   // 设置新内容
   alertBox.textContent = message;
-  
   // 显示提示
   alertBox.classList.add('show');
-  
   // 设置自动隐藏
   alertBox.timer = setTimeout(() => {
     alertBox.classList.remove('show');
