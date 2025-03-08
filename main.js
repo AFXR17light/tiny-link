@@ -4,6 +4,7 @@ let password_value = document.querySelector("#passwordText").value;
 let buildValueItemFunc = buildValueTxt;
 
 function showAlert(message, duration = 2000) {
+  console.log(message);
   const alertBox = document.getElementById('alert');
   
   // 清除现有定时器
@@ -68,7 +69,7 @@ function shorturl() {
       document.getElementById("keyPhrase").value = "";
       const resultDiv = document.getElementById('result');
       const linkDisplay = document.getElementById('generatedLink');
-      let tinyLink = window.location.hostname + keyPhrase;
+      let tinyLink = window.location.hostname + '/' + keyPhrase;
       linkDisplay.textContent = tinyLink;
       resultDiv.style.display = 'block';
       navigator.clipboard.writeText(tinyLink);
