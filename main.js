@@ -1,10 +1,11 @@
 let res;
-let apiSrv = window.location.pathname;
+// let apiSrv = window.location.pathname;
+let apiSrv = "https://t.hkra.xyz/";
 let password_value = document.querySelector("#passwordText").value;
 let buildValueItemFunc = buildValueTxt;
 
 function showAlert(message, duration = 2000) {
-  const alertBox = document.getElementById('globalAlert');
+  const alertBox = document.getElementById('alert');
   
   // 清除现有定时器
   if(alertBox.timer) clearTimeout(alertBox.timer);
