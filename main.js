@@ -3,9 +3,27 @@ let apiSrv = window.location.pathname;
 let password_value = document.querySelector("#passwordText").value;
 let buildValueItemFunc = buildValueTxt;
 
+function showAlert(message, duration = 2000) {
+  const alertBox = document.getElementById('globalAlert');
+  
+  // 清除现有定时器
+  if(alertBox.timer) clearTimeout(alertBox.timer);
+  
+  // 设置新内容
+  alertBox.textContent = message;
+  
+  // 显示提示
+  alertBox.classList.add('show');
+  
+  // 设置自动隐藏
+  alertBox.timer = setTimeout(() => {
+    alertBox.classList.remove('show');
+  }, duration);
+}
+
 function shorturl() {
   if (document.querySelector("#longURL").value == "") {
-    alert("Url cannot be empty!");
+    showAlert("❌ Url cannot be empty!");
     return;
   }
 
@@ -16,20 +34,13 @@ function shorturl() {
   document.getElementById("addBtn").innerHTML = 'tinifying...';
   document.getElementById('result').addEventListener('click', async () => {
     const text = document.getElementById('generatedLink').textContent;
-    const alertBox = document.getElementById('copyAlert');
+    const alertBox = document.getElementById('alert');
 
     try {
       await navigator.clipboard.writeText(text);
-      alertBox.style.display = 'block';
-      alertBox.style.animation = 'none';
-      void alertBox.offsetHeight; // 触发重绘
-      alertBox.style.animation = 'fadeOut 2.5s forwards';
+      showAlert('✓ Copied');
     } catch (err) {
-      alertBox.textContent = "❌ Copy failed.";
-      alertBox.style.display = 'block';
-      alertBox.style.animation = 'none';
-      void alertBox.offsetHeight;
-      alertBox.style.animation = 'fadeOut 2.5s forwards';
+      showAlert('❌ Copy failed');
 
       // 自动选择文本作为降级方案
       const range = document.createRange();
@@ -61,13 +72,13 @@ function shorturl() {
       linkDisplay.textContent = tinyLink;
       resultDiv.style.display = 'block';
       navigator.clipboard.writeText(tinyLink);
-      alert("Success, tiny link copied.");
+      showAlert("✓ Success, tiny link copied.");
     } else {
-      alert("Failed: " + res.msg);
+      showAlert("❌ " + res.msg);
     }
 
   }).catch(function (err) {
-    alert("Unknow error. Please retry!");
+    showAlert("❌ Unknow error");
     console.log(err);
     document.getElementById("addBtn").disabled = false;
     document.getElementById("addBtn").innerHTML = 'tinify';
