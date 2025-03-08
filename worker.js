@@ -17,17 +17,236 @@ const protect_keylist = [
   "password",
 ]
 
-let index_html = "https://crazypeace.github.io/Url-Shorten-Worker/" + config.theme + "/index.html"
-let result_html = "https://crazypeace.github.io/Url-Shorten-Worker/" + config.theme + "/result.html"
+let index_html = "https://afxr17light.github.io/tiny-link/" + config.theme + "/index.html"
+let result_html = "https://afxr17light.github.io/tiny-link/" + config.theme + "/result.html"
 
 const html404 = `<!DOCTYPE html>
-  <html>
-  <body>
-    <h1>404 Not Found.</h1>
-    <p>The url you visit is not found.</p>
-    <p> <a href="https://github.com/crazypeace/Url-Shorten-Worker/" target="_self">Fork me on GitHub</a> </p>
-  </body>
-  </html>`
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>(๑• . •๑) ?</title>
+  <style>
+    :root {
+      --bg-color: #f8f9fa;
+      --text-color: #2d3436;
+      --container-bg: #ffffff;
+      --shadow-color: rgba(0, 0, 0, 0.1);
+      --primary-color: #e84393;
+      --primary-hover: #d6336c;
+      --secondary-text: #636e72;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-color: #1a1a1a;
+        --text-color: #e0e0e0;
+        --container-bg: #2d2d2d;
+        --shadow-color: rgba(0, 0, 0, 0.3);
+        --primary-color: #ff79b0;
+        --primary-hover: #ff5c9c;
+        --secondary-text: #a0a0a0;
+      }
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    body {
+      background: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      text-align: center;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .container {
+      max-width: 600px;
+      width: 100%;
+      padding: 2rem;
+      background: var(--container-bg);
+      border-radius: 12px;
+      box-shadow: 0 4px 6px var(--shadow-color);
+      margin: 1rem;
+      transition: background 0.3s ease;
+    }
+
+    h1 {
+      color: var(--primary-color);
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      color: var(--secondary-text);
+      margin-bottom: 2rem;
+    }
+
+    .tinyko {
+      font-size: 2.5rem;
+      margin: 1rem 0;
+      filter: brightness(1.1);
+    }
+
+    .back-link {
+      display: inline-block;
+      padding: 0.8rem 1.5rem;
+      background: var(--primary-color);
+      color: white;
+      text-decoration: none;
+      border-radius: 25px;
+      transition: all 0.2s ease;
+      font-weight: 500;
+    }
+
+    .back-link:hover {
+      background: var(--primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 1rem;
+      }
+      .container {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Page not found</h1>
+    <div class="tinyko">(๑• . •๑) ?</div>
+    <p>Oops! The page you're looking for is tinier than expected!</p>
+  </div>
+</body>
+</html>`;
+
+const htmlHome = `<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>(๑• . •๑)</title>
+  <style>
+    :root {
+      --bg-color: #f8f9fa;
+      --text-color: #2d3436;
+      --container-bg: #ffffff;
+      --shadow-color: rgba(0, 0, 0, 0.1);
+      --primary-color: #e84393;
+      --primary-hover: #d6336c;
+      --secondary-text: #636e72;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-color: #1a1a1a;
+        --text-color: #e0e0e0;
+        --container-bg: #2d2d2d;
+        --shadow-color: rgba(0, 0, 0, 0.3);
+        --primary-color: #ff79b0;
+        --primary-hover: #ff5c9c;
+        --secondary-text: #a0a0a0;
+      }
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    body {
+      background: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      text-align: center;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .container {
+      max-width: 600px;
+      width: 100%;
+      padding: 2rem;
+      background: var(--container-bg);
+      border-radius: 12px;
+      box-shadow: 0 4px 6px var(--shadow-color);
+      margin: 1rem;
+      transition: background 0.3s ease;
+    }
+
+    h1 {
+      color: var(--primary-color);
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      color: var(--secondary-text);
+      margin-bottom: 2rem;
+    }
+
+    .tinyko {
+      font-size: 2.5rem;
+      margin: 1rem 0;
+      filter: brightness(1.1);
+    }
+
+    .back-link {
+      display: inline-block;
+      padding: 0.8rem 1.5rem;
+      background: var(--primary-color);
+      color: white;
+      text-decoration: none;
+      border-radius: 25px;
+      transition: all 0.2s ease;
+      font-weight: 500;
+    }
+
+    .back-link:hover {
+      background: var(--primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 1rem;
+      }
+      .container {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>tiny link service</h1>
+    <div class="tinyko">(๑• . •๑)</div>
+    <p>Private URL shortening infrastructure, not publicly accessible.</p>
+  </div>
+</body>
+</html>`;
 
 let response_header = {
   "Content-type": "text/html;charset=UTF-8;application/json",
@@ -307,13 +526,10 @@ async function handleRequest(request) {
   // 如果path为空, 即直接访问本worker
   // If visit this worker directly (no path)
   if (!path) {
-    // return Response.redirect("https://zelikk.blogspot.com/search/label/Url-Shorten-Worker", 302)
-    // /* 
-    return new Response(html404, {
+    return new Response(htmlHome, {
       headers: response_header,
-      status: 404
+      status: 200
     }) 
-    // */
   }
 
   // 如果path符合password 显示操作页面index.html
