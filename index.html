@@ -123,7 +123,7 @@
       word-break: break-all;
     }
 
-    .kawaii {
+    .tinyko {
       font-size: 2rem;
       margin: 1rem 0;
     }
@@ -160,34 +160,15 @@
       <button class="btn btn-primary" type="submit" onclick='shorturl()' id="addBtn">tinyfy</button>
     </div>
 
-    <div class="input-group mb-3">
-      <span class="input-group-text" id="basic-addon3">password</span>
+    <div class="input-group">
+      <label for="passwordText">password</label>
       <input class="form-control" type="text" value="__PASSWORD__" readonly="true" id="passwordText"
         aria-describedby="basic-addon3">
-    </div>
-
-    <div class="modal fade" id="resultModal" tabindex="-1" role="dialog" aria-labelledby="resultModalLabel"
-      aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="resultModalLabel">Result</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body" id="result">No result</div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-primary" onclick='copyurl("result")' data-bs-toggle="popover"
-              data-bs-placement="bottom" data-bs-content="Copied!">Copy</button>
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/gh/lrsjng/jquery-qrcode@0.18.0/dist/jquery-qrcode.min.js"
       crossorigin="anonymous"></script>
-
     <script src="https://afxr17light.github.io/tiny-link/main.js" crossorigin="anonymous"></script>
 </body>
 
