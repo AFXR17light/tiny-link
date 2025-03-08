@@ -134,6 +134,61 @@
       display: none;
     }
 
+    .copy-box {
+      position: relative;
+      margin-top: 1.5rem;
+      padding: 1rem;
+      background: var(--input-bg);
+      border-radius: 8px;
+      border: 2px solid var(--input-border);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .copy-box:hover {
+      border-color: var(--primary-color);
+    }
+
+    .copy-content {
+      word-break: break-all;
+      padding-right: 40px;
+    }
+
+    .copy-icon {
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: 0.6;
+    }
+
+    .copy-notification {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--container-bg);
+      color: var(--primary-color);
+      padding: 0.8rem 1.5rem;
+      border-radius: 25px;
+      box-shadow: 0 2px 4px var(--shadow-color);
+      display: none;
+      animation: fadeOut 2.5s forwards;
+    }
+
+    @keyframes fadeOut {
+      0% {
+        opacity: 1;
+      }
+
+      90% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
 
     @media (max-width: 480px) {
       body {
@@ -168,9 +223,13 @@
 
     <button class="btn btn-primary" type="submit" onclick='shorturl()' id="addBtn">tinyfy</button>
 
-    <div class="result-box" id="result" style="display: none;">
-      <div id="generatedLink" style="margin-top: 0.5rem;"></div>
+    <div class="copy-box" id="result" style="display: none;">
+      <div class="copy-content" id="generatedLink"></div>
+      <svg class="copy-icon" width="20" height="20" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M19 21H8V7h11m0-2H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2m-3-4H4a2 2 0 0 0-2 2v14h2V3h12V1z"/>
+      </svg>
     </div>
+    <div class="copy-notification" id="copyAlert">✓ 已复制到剪贴板</div>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/gh/lrsjng/jquery-qrcode@0.18.0/dist/jquery-qrcode.min.js"

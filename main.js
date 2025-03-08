@@ -1,18 +1,12 @@
-let res
-
-let apiSrv = window.location.pathname
-let password_value = document.querySelector("#passwordText").value
-// let apiSrv = "https://journal.crazypeace.workers.dev"
-// let password_value = "journaljournal"
-
-// 这是默认行为, 在不同的index.html中可以设置为不同的行为
-// This is default, you can define it to different funciton in different theme index.html
-let buildValueItemFunc = buildValueTxt
+let res;
+let apiSrv = window.location.pathname;
+let password_value = document.querySelector("#passwordText").value;
+let buildValueItemFunc = buildValueTxt;
 
 function shorturl() {
   if (document.querySelector("#longURL").value == "") {
-    alert("Url cannot be empty!")
-    return
+    alert("Url cannot be empty!");
+    return;
   }
 
   // key can't have space in it
@@ -20,6 +14,30 @@ function shorturl() {
 
   document.getElementById("addBtn").disabled = true;
   document.getElementById("addBtn").innerHTML = 'tinifying...';
+  document.getElementById('result').addEventListener('click', async () => {
+    const text = document.getElementById('generatedLink').textContent;
+    const alertBox = document.getElementById('copyAlert');
+
+    try {
+      await navigator.clipboard.writeText(text);
+      alertBox.style.display = 'block';
+      alertBox.style.animation = 'none';
+      void alertBox.offsetHeight; // 触发重绘
+      alertBox.style.animation = 'fadeOut 2.5s forwards';
+    } catch (err) {
+      alertBox.textContent = "❌ Copy failed.";
+      alertBox.style.display = 'block';
+      alertBox.style.animation = 'none';
+      void alertBox.offsetHeight;
+      alertBox.style.animation = 'fadeOut 2.5s forwards';
+
+      // 自动选择文本作为降级方案
+      const range = document.createRange();
+      range.selectNodeContents(document.getElementById('generatedLink'));
+      window.getSelection().removeAllRanges();
+      window.getSelection().addRange(range);
+    }
+  });
   let longURL = document.querySelector("#longURL").value;
   let keyPhrase = document.querySelector("#keyPhrase").value;
   fetch(apiSrv, {
@@ -35,15 +53,15 @@ function shorturl() {
 
     // 成功生成短链 Succeed
     if (res.status == "200") {
-      alert("success");
       document.getElementById("longURL").value = "";
       document.getElementById("keyPhrase").value = "";
       const resultDiv = document.getElementById('result');
       const linkDisplay = document.getElementById('generatedLink');
-      let tinyLink = "https://t.hkra.xyz/" + keyPhrase;
+      let tinyLink = apiSrv + keyPhrase;
       linkDisplay.textContent = tinyLink;
       resultDiv.style.display = 'block';
       navigator.clipboard.writeText(tinyLink);
+      alert("Success, tiny link copied.");
     } else {
       alert("Failed: " + res.msg);
     }
