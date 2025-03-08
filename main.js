@@ -88,7 +88,7 @@ function shorturl() {
       navigator.clipboard.writeText(tinyLink);
       showAlert("✓ Success, copied");
     } else {
-      showAlert("❌ error: " + res.error);
+      showAlert("❌ " + res.error);
     }
 
   }).catch(function (err) {

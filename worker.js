@@ -396,7 +396,7 @@ async function handleRequest(request) {
 
         let is_exist = await is_url_exist(req_key)
         if ((!config.overwrite_kv) && (is_exist)) {
-          return new Response(`{"status":500,"key": "` + req_key + `", "error":"Error: Specific key existed."}`, {
+          return new Response(`{"status":500,"key": "` + req_key + `", "error":"tail exists"}`, {
             headers: response_header,
           })
         } else {
