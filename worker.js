@@ -299,16 +299,16 @@ async function sha512(url) {
   return hashHex
 }
 
-async function checkURL(URL) {
-  let str = URL;
-  let Expression = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/;
-  let objExp = new RegExp(Expression);
-  if (objExp.test(str) == true) {
-    if (str[0] == 'h')
-      return true;
-    else
-      return false;
-  } else {
+async function checkURL(url) {
+  // 允许省略协议的常见情况
+  if (!url.startsWith('http')) {
+    url = `https://${url}`;
+  }
+  
+  try {
+    new URL(url);
+    return /^https?:\/\/([\w-]+\.)+[\w-]+/.test(url);
+  } catch {
     return false;
   }
 }
