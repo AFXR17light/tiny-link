@@ -1,78 +1,58 @@
 @media (prefers-color-scheme: dark) {
-  /* 基础文本颜色 */
   body {
-    color: #e2e8f0; /* 提升亮度 */
-    background: #121212; /* 加深背景 */
+    color: #d9d9d9;
+    background: #1b1b1b;
   }
-
-  /* 卡片系统 */
+  
   .card {
-    background-color: #1e293b;
-    border-color: #334155;
+    background-color: #252d38;
+    border-color: #37414d;
+    color: #e2e8f0; /* 新增卡片文字颜色 */
   }
-  .card-header {
-    background-color: #0f172a;
-    color: #f8fafc;
-    border-bottom-color: #334155;
+  
+  /* 新增卡片标题样式 */
+  .card-header,
+  .card-title,
+  .card-footer {
+    color: #ffffff !important;
+    border-color: #4a5568;
   }
-
-  /* 表单控件 */
+  
   .form-control {
-    background-color: #1e293b;
-    border-color: #475569;
-    color: #e2e8f0;
+    background-color: #2d3748;
+    border-color: #4a5568;
+    color: #e2e8f0 !important; /* 强制输入框文字颜色 */
   }
-  .form-control:focus {
-    background-color: #1e293b;
-    border-color: #60a5fa;
-    box-shadow: 0 0 0 0.25rem rgba(96, 165, 250, 0.25);
-  }
-
-  /* 输入组文本 */
+  
   .input-group-text {
-    background-color: #0f172a;
-    border-color: #475569;
-    color: #94a3b8;
+    background-color: #2d3748;
+    border-color: #4a5568;
+    color: #e2e8f0 !important; /* 强制标签文字颜色 */
   }
-
-  /* 按钮组 */
-  .btn-primary {
-    background-color: #2563eb;
-    border-color: #2563eb;
-  }
-  .btn-success {
-    background-color: #16a34a;
-  }
-  .btn-danger {
-    background-color: #dc2626;
-  }
-  .btn-info {
-    background-color: #0891b2;
-  }
-
-  /* 链接 */
-  a {
-    color: #60a5fa;
-  }
-  a:hover {
-    color: #3b82f6;
-  }
-
-  /* 列表项 */
+  
   .list-group-item {
-    background-color: #1e293b;
-    border-color: #334155;
-    color: #e2e8f0;
+    background-color: #2d3748;
+    border-color: #4a5568;
+    color: #e2e8f0; /* 列表项文字颜色 */
   }
-
-  /* 模态框 */
-  .modal-content {
-    background-color: #1e293b;
+  
+  /* 按钮文字颜色修正 */
+  .btn-primary {
+    color: #fff !important;
   }
-  .modal-header {
-    border-bottom-color: #334155;
+  
+  .btn-success,
+  .btn-danger,
+  .btn-info {
+    color: #fff !important;
   }
-  .modal-footer {
-    border-top-color: #334155;
+  
+  /* 链接颜色修正 */
+  a {
+    color: #63b3ed !important;
+  }
+  
+  a:hover {
+    color: #4299e1 !important;
   }
 }
