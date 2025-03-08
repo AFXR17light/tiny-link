@@ -18,9 +18,26 @@ function showAlert(message, duration = 2000) {
   }, duration);
 }
 
+async function checkURL(URL) {
+  let str = URL;
+  let Expression = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/;
+  let objExp = new RegExp(Expression);
+  if (objExp.test(str) == true) {
+    if (str[0] == 'h')
+      return true;
+    else
+      return false;
+  } else {
+    return false;
+  }
+}
+
 function shorturl() {
   if (document.querySelector("#longURL").value == "") {
     showAlert("❌ Url cannot be empty!");
+    return;
+  } else if (!checkURL(document.querySelector("#longURL").value)) {
+    showAlert("❌ Invalid URL!");
     return;
   }
 
