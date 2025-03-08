@@ -18,16 +18,16 @@ function showAlert(message, duration = 2000) {
   }, duration);
 }
 
-async function checkURL(URL) {
-  let str = URL;
-  let Expression = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/;
-  let objExp = new RegExp(Expression);
-  if (objExp.test(str) == true) {
-    if (str[0] == 'h')
-      return true;
-    else
-      return false;
-  } else {
+function validateUrl(url) {
+  // 允许省略协议的常见情况
+  if (!url.startsWith('http')) {
+    url = `https://${url}`;
+  }
+  
+  try {
+    new URL(url);
+    return /^https?:\/\/([\w-]+\.)+[\w-]+/.test(url);
+  } catch {
     return false;
   }
 }
@@ -36,7 +36,7 @@ function shorturl() {
   if (document.querySelector("#longURL").value == "") {
     showAlert("❌ Url cannot be empty!");
     return;
-  } else if (!checkURL(document.querySelector("#longURL").value)) {
+  } else if (!validateUrl(document.querySelector("#longURL").value)) {
     showAlert("❌ Invalid URL!");
     return;
   }
@@ -88,7 +88,7 @@ function shorturl() {
       navigator.clipboard.writeText(tinyLink);
       showAlert("✓ Success, tiny link copied.");
     } else {
-      showAlert("❌ " + res.msg);
+      showAlert("❌ error: " + res.status);
     }
 
   }).catch(function (err) {
