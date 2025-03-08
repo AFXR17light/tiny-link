@@ -20,10 +20,12 @@ function shorturl() {
 
   document.getElementById("addBtn").disabled = true;
   document.getElementById("addBtn").innerHTML = 'tinifying...';
+  let longURL = document.querySelector("#longURL").value;
+  let keyPhrase = document.querySelector("#keyPhrase").value;
   fetch(apiSrv, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ cmd: "add", url: document.querySelector("#longURL").value, key: document.querySelector("#keyPhrase").value, password: password_value })
+    body: JSON.stringify({ cmd: "add", url: longURL, key: keyPhrase, password: password_value })
   }).then(function (response) {
     return response.json();
   }).then(function (myJson) {
@@ -36,8 +38,14 @@ function shorturl() {
       alert("success");
       document.getElementById("longURL").value = "";
       document.getElementById("keyPhrase").value = "";
+      const resultDiv = document.getElementById('result');
+      const linkDisplay = document.getElementById('generatedLink');
+      let tinyLink = "https://t.hkra.xyz/" + keyPhrase;
+      linkDisplay.textContent = tinyLink;
+      resultDiv.style.display = 'block';
+      navigator.clipboard.writeText(tinyLink);
     } else {
-      alert(res.message);
+      alert("Failed: " + res.msg);
     }
 
   }).catch(function (err) {
