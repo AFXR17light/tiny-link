@@ -82,13 +82,13 @@ function shorturl() {
       document.getElementById("keyPhrase").value = "";
       const resultDiv = document.getElementById('result');
       const linkDisplay = document.getElementById('generatedLink');
-      let tinyLink = window.location.hostname + '/' + keyPhrase;
+      let tinyLink = window.location.hostname + '/' + res.key;
       linkDisplay.textContent = tinyLink;
       resultDiv.style.display = 'block';
       navigator.clipboard.writeText(tinyLink);
-      showAlert("✓ Success, tiny link copied.");
+      showAlert("✓ Success, copied");
     } else {
-      showAlert("❌ error: " + res.status);
+      showAlert("❌ error: " + res.error);
     }
 
   }).catch(function (err) {
