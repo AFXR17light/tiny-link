@@ -3,53 +3,93 @@
   padding: 0;
   cursor: default;
 }
-body {
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  justify-content: center;
-  vertical-align: center;
-  flex-wrap: wrap;
-  align-content: center;
 
+body {
   color: #2a2b2c;
   background-color: #ebedee;
+  min-height: 100vh;
 }
+
 img {
   width: auto;
   max-width: 100%;
+  height: auto;
 }
+
 .card {
-  background-color: transparent;
-  width: 768px;
+  background-color: #fff;
+  transition: all 0.3s ease;
 }
+
 .form-control {
   cursor: auto;
+  background-color: #f8f9fa;
 }
-.img-thumbnail {
-  max-height: 320px;
-}
+
 .list-group-item {
   font-family: "Source Code Pro", Menlo, Monaco, Consolas, "Courier New", monospace;
+  padding: 0.75rem 1.25rem;
 }
-@media (max-width: 769px) {
+
+/* 响应式调整 */
+@media (max-width: 992px) {
   .card {
-    width: 80%;
+    margin: 1rem 0;
   }
 }
-@media (max-width: 420px) {
-  .card {
-    width: 95%;
+
+@media (max-width: 768px) {
+  .input-group-text {
+    font-size: 0.9rem;
+  }
+  
+  .btn {
+    font-size: 0.9rem;
+    padding: 0.375rem 0.75rem;
   }
 }
-@media (prefers-color-scheme: dark) { 
+
+@media (max-width: 576px) {
   body {
-    color: #d9d9d9; 
+    padding: 1rem;
+  }
+  
+  .card {
+    border-radius: 0.5rem;
+  }
+  
+  .input-group > .form-control,
+  .input-group > .input-group-text {
+    height: 2.5rem;
+  }
+}
+
+/* 暗黑模式 */
+@media (prefers-color-scheme: dark) {
+  body {
+    color: #d9d9d9;
     background: #1b1b1b;
   }
+  
   .card {
     background-color: #252d38;
+    border-color: #37414d;
   }
-} 
+  
+  .form-control {
+    background-color: #2d3748;
+    border-color: #4a5568;
+    color: #e2e8f0;
+  }
+  
+  .input-group-text {
+    background-color: #2d3748;
+    border-color: #4a5568;
+    color: #e2e8f0;
+  }
+  
+  .list-group-item {
+    background-color: #2d3748;
+    border-color: #4a5568;
+  }
+}
