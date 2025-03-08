@@ -1,95 +1,78 @@
-* {
-  margin: 0;
-  padding: 0;
-  cursor: default;
-}
-
-body {
-  color: #2a2b2c;
-  background-color: #ebedee;
-  min-height: 100vh;
-}
-
-img {
-  width: auto;
-  max-width: 100%;
-  height: auto;
-}
-
-.card {
-  background-color: #fff;
-  transition: all 0.3s ease;
-}
-
-.form-control {
-  cursor: auto;
-  background-color: #f8f9fa;
-}
-
-.list-group-item {
-  font-family: "Source Code Pro", Menlo, Monaco, Consolas, "Courier New", monospace;
-  padding: 0.75rem 1.25rem;
-}
-
-/* 响应式调整 */
-@media (max-width: 992px) {
-  .card {
-    margin: 1rem 0;
-  }
-}
-
-@media (max-width: 768px) {
-  .input-group-text {
-    font-size: 0.9rem;
-  }
-  
-  .btn {
-    font-size: 0.9rem;
-    padding: 0.375rem 0.75rem;
-  }
-}
-
-@media (max-width: 576px) {
-  body {
-    padding: 1rem;
-  }
-  
-  .card {
-    border-radius: 0.5rem;
-  }
-  
-  .input-group > .form-control,
-  .input-group > .input-group-text {
-    height: 2.5rem;
-  }
-}
-
-/* 暗黑模式 */
 @media (prefers-color-scheme: dark) {
+  /* 基础文本颜色 */
   body {
-    color: #d9d9d9;
-    background: #1b1b1b;
+    color: #e2e8f0; /* 提升亮度 */
+    background: #121212; /* 加深背景 */
   }
-  
+
+  /* 卡片系统 */
   .card {
-    background-color: #252d38;
-    border-color: #37414d;
+    background-color: #1e293b;
+    border-color: #334155;
   }
-  
+  .card-header {
+    background-color: #0f172a;
+    color: #f8fafc;
+    border-bottom-color: #334155;
+  }
+
+  /* 表单控件 */
   .form-control {
-    background-color: #2d3748;
-    border-color: #4a5568;
+    background-color: #1e293b;
+    border-color: #475569;
     color: #e2e8f0;
   }
-  
+  .form-control:focus {
+    background-color: #1e293b;
+    border-color: #60a5fa;
+    box-shadow: 0 0 0 0.25rem rgba(96, 165, 250, 0.25);
+  }
+
+  /* 输入组文本 */
   .input-group-text {
-    background-color: #2d3748;
-    border-color: #4a5568;
+    background-color: #0f172a;
+    border-color: #475569;
+    color: #94a3b8;
+  }
+
+  /* 按钮组 */
+  .btn-primary {
+    background-color: #2563eb;
+    border-color: #2563eb;
+  }
+  .btn-success {
+    background-color: #16a34a;
+  }
+  .btn-danger {
+    background-color: #dc2626;
+  }
+  .btn-info {
+    background-color: #0891b2;
+  }
+
+  /* 链接 */
+  a {
+    color: #60a5fa;
+  }
+  a:hover {
+    color: #3b82f6;
+  }
+
+  /* 列表项 */
+  .list-group-item {
+    background-color: #1e293b;
+    border-color: #334155;
     color: #e2e8f0;
   }
-  
-  .list-group-item {
-    background-color: #2d3748;
-    border-color: #4a5568;
+
+  /* 模态框 */
+  .modal-content {
+    background-color: #1e293b;
+  }
+  .modal-header {
+    border-bottom-color: #334155;
+  }
+  .modal-footer {
+    border-top-color: #334155;
   }
 }
